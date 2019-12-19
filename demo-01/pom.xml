@@ -11,7 +11,7 @@
 	<groupId>com</groupId>
 	<artifactId>demo-01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo-01</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -54,6 +54,12 @@
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		
@@ -88,12 +94,16 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+    <!-- 应与application.properties(或application.yml)中context-path保持一致 -->
+    <finalName>demo-01-0.0.1-SNAPSHOT</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
 	</build>
+
+
 
 </project>
