@@ -1,0 +1,17 @@
+debug: false
+
+logging:
+  level:
+    com.demo: debug
+
+
+
+spring: 
+   datasource: 
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://34.92.91.41:3306/test
+      username: root
+      password: 123456
+      
+
+      
