@@ -410,3 +410,8 @@ Caused by: java.lang.NullPointerException: null
 2019-12-19 11:19:22.363 [main] INFO  com.demo.Demo01ApplicationTests - No active profile set, falling back to default profiles: default
 2019-12-19 11:19:23.533 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
 2019-12-19 11:19:24.989 [main] INFO  com.demo.Demo01ApplicationTests - Started Demo01ApplicationTests in 2.934 seconds (JVM running for 3.936)
+2019-12-19 12:07:16.632 [main] INFO  com.demo.Demo01ApplicationTests - Starting Demo01ApplicationTests on DESKTOP-9TB1SGF with PID 10124 (started by lenovo in D:\D\eclipse-workspace\demo-01)
+2019-12-19 12:07:16.632 [main] DEBUG com.demo.Demo01ApplicationTests - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2019-12-19 12:07:16.632 [main] INFO  com.demo.Demo01ApplicationTests - No active profile set, falling back to default profiles: default
+2019-12-19 12:07:17.851 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-19 12:07:19.298 [main] INFO  com.demo.Demo01ApplicationTests - Started Demo01ApplicationTests in 2.995 seconds (JVM running for 4.349)
