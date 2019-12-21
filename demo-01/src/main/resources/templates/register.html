@@ -38,51 +38,44 @@
         	
             <div class="inner-bg">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <!--<h1><strong>Bootstrap</strong> Login Form</h1>
-                            <div class="description">
-                            	<p>
-	                            	This is a free responsive login form made with Bootstrap. 
-	                            	Download it on <a href="#"><strong>AZMIND</strong></a>, customize and use it as you like!
-                            	</p>
-                            </div>-->
-                            <h1>钩子程序触发jenkins部署+email通知</h1>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
-                        			<h3 th:text="#{login.top1}">Login to our site</h3>
-                            		<p th:text="#{login.top2}">Enter your username and password to log on:</p>
+                        			<h3>register to our site</h3>
+                            		<p th:if="${flag} != '1'">注册</p>
                             		<p style="color: red" th:text="${msg}"></p>
+                            		<a th:if="${flag} == '1'" th:href="@{/index.html}">请登录</a>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-key"></i>
                         		</div>
                             </div>
+                        
                             <div class="form-bottom">
-			                    <form role="form" action="doLogin" method="post" class="login-form">
+			                    <form role="form" action="register" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="userName" >UserName</label>
-			                        	<input type="text" name="userName" th:placeholder="#{login.username}" class="form-username form-control" id="form-username">
+			                        	<input type="text" name="userName" th:value="${userName}" th:placeholder="#{login.username}" class="form-username form-control" id="form-username">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="password">Password</label>
-			                        	<input type="password" name="password" th:placeholder="#{login.password}" class="form-password form-control" id="form-password">
+			                        	<input type="password" name="password" th:value="${password}" th:placeholder="#{login.password}" class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn" th:text="#{login.sign}">Sign in!</button>
+			                        <div class="form-group">
+			                    		<label class="sr-only" for="email" >email</label>
+			                        	<input type="text" name="email" th:value="${email}" th:placeholder="#{login.email}" class="form-username form-control" id="form-email">
+			                        </div>
+			                        <button type="submit" class="btn" th:text="#{login.zhuce}">register!</button>
 			                    </form>
 		                    </div>
                         </div>
                     </div>
-                    <div class="row">
-                    	<a th:href="@{/index.html(l=zh_CN)}">中文</a><a th:href="@{/index.html(l=en_US)}">English</a>
-                    </div>
+
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3><a th:text="#{login.zhuce}" th:href="@{/toRegister}" style="color: gray;">register</a></h3>
+                        	<h3><a th:text="#{login.sign}" th:href="@{/}" style="color: gray;">sign</a></h3>
                         	<div class="social-login-buttons">
 	                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
 	                        		<i class="fa fa-facebook"></i> Facebook
@@ -96,6 +89,8 @@
                         	</div>
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
             

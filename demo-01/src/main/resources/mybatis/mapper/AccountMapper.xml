@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.mapper.AccountMapper" >
+    <resultMap id="accountResultMap" type="com.demo.model.Account" >
+        <id column="id" property="id"  />
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+    
+    <sql id="selectAccountVo" >
+        SELECT id,user_name,password,email,status,create_time,update_time from t_app_account
+    </sql>
+
+    <select id="checkLogin" parameterType="java.util.Map" resultMap="accountResultMap"  >
+        <include refid="selectAccountVo" />
+     	<where>
+     		<if test="userName != null"> and user_name = #{userName}</if>
+     		<if test="password != null "> and password = #{password}</if>
+     	</where>
+    </select>
+    
+    <select id="selectAccount" parameterType="java.lang.Integer" resultMap="accountResultMap"  >
+        <include refid="selectAccountVo" />
+     	<where>
+     		<if test="status != null">status = #{status}</if>
+     	</where>
+    </select>
+
+    <insert id="insertAccount" parameterType="com.demo.model.Account" >
+       INSERT INTO t_app_account
+               (user_name,password,email) 
+           VALUES
+               (#{userName}, #{password}, #{email})
+    </insert>
+    
+    <update id="updateAccount" parameterType="com.demo.model.Account" >
+       UPDATE 
+               t_app_account 
+       SET 
+           status = #{status}
+       WHERE 
+               id = #{id}
+    </update>
+    
+   
+</mapper>

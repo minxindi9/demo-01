@@ -46,20 +46,26 @@
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
                 <div class="top-left-part">
+                	
+                ·	<span class="logo">用户名:</span>
+                	<span th:text="${session.account.userName}" style="font-size: 24px"></span>
+                	<br>
+                	<span>创建时间:</span>
+                	<span th:text="${#dates.format(session.account.createTime,'yyyy-MM-dd HH:mm:ss')}" style="font-size: 19px">4564546</span>
                     <!-- Logo -->
-                    <a class="logo" href="dashboard.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../static/plugins/images/admin-logo.png" th:src="@{/static/plugins/images/admin-logo.png}" alt="home"
+                    <!-- <a class="logo" href="dashboard.html">
+                        Logo icon image, you can use font-icon also<b>
+                            This is dark logo icon<img src="../static/plugins/images/admin-logo.png" th:src="@{/static/plugins/images/admin-logo.png}" alt="home"
                                 class="dark-logo" />
-                            <!--This is light logo icon--><img src="../static/plugins/images/admin-logo-dark.png" th:src="@{/static/plugins/images/admin-logo-dark.png}" alt="home"
+                            This is light logo icon<img src="../static/plugins/images/admin-logo-dark.png" th:src="@{/static/plugins/images/admin-logo-dark.png}" alt="home"
                                 class="light-logo" />
                         </b>
-                        <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../static/plugins/images/admin-text.png" th:src="@{/static/plugins/images/admin-text.png}" alt="home"
+                        Logo text image you can use text also<span class="hidden-xs">
+                            This is dark logo text<img src="../static/plugins/images/admin-text.png" th:src="@{/static/plugins/images/admin-text.png}" alt="home"
                                 class="dark-logo" />
-                            <!--This is light logo text--><img src="../static/plugins/images/admin-text-dark.png" th:src="@{/static/plugins/images/admin-text-dark.png}" alt="home"
+                            This is light logo text<img src="../static/plugins/images/admin-text-dark.png" th:src="@{/static/plugins/images/admin-text-dark.png}" alt="home"
                                 class="light-logo" />
-                        </span> </a>
+                        </span> </a> -->
                 </div>
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
@@ -74,7 +80,7 @@
                     </li>
                     <li>
                         <a class="profile-pic" href="#"> <img src="../static/plugins/images/users/varun.jpg" th:src="@{/static/plugins/images/users/varun.jpg}" alt="user-img"
-                                width="36" class="img-circle"><b class="hidden-xs" th:text="${userName}"></b></a>
+                                width="36" class="img-circle"><b class="hidden-xs"></b></a>
                     </li>
                 </ul>
             </div>
@@ -86,6 +92,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+       
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -150,6 +157,7 @@
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Basic Table</li>
                         </ol>
+                        <h1>[[${session.account.userName}]]</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

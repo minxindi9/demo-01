@@ -18,7 +18,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
 		super.addViewControllers(registry);
 		registry.addViewController("/").setViewName("login");
 		registry.addViewController("/index.html").setViewName("login");
-		registry.addViewController("/success").setViewName("basic-table");
+		//registry.addViewController("/success").setViewName("basic-table");
 	}
 	
 	//所有的WebMvcConfigurerAdapter组件都会一起起作用
