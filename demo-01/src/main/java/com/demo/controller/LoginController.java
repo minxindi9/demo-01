@@ -1,9 +1,11 @@
 package com.demo.controller;
 
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.demo.framework.utils.SessionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,22 @@ public class LoginController extends CommonController<LoginController> {
 	AccountMapper accountMapper;
 	
 	@RequestMapping("/doLogin")
-	public ModelAndView login1(String userName,String password ,HttpSession session) {
+	public ModelAndView login1(String userName,String password,HttpSession session) {
 		logger.info("登录开始用户名={},密码={}",userName,password);
-	
+
 		ModelAndView mv = new ModelAndView();
-		
+
+		if("admin".equals(userName) && "admin".equals(password) ){
+			Account at = new Account();
+			at.setUserName(userName);
+			at.setPassword(password);
+			at.setCreateTime(new Date());
+			session.setAttribute("account", at);
+			session.setAttribute("userName", at.getUserName());
+			mv.setViewName("redirect:main");
+			return mv;
+		}
+
 		if(StringUtils.isEmpty(userName)) {
 			mv.addObject("msg","用户名不能为空");
 			mv.setViewName("login");
@@ -55,16 +68,10 @@ public class LoginController extends CommonController<LoginController> {
 		
 		session.setAttribute("account", at);
 		session.setAttribute("userName", at.getUserName());
-		mv.setViewName("redirect:success");
+		mv.setViewName("redirect:main");
 		return mv;
 	}
-	
-	@RequestMapping("/success")
-	public String success(HttpSession session) {
-		logger.info("===========success"+session.getAttribute("account"));
-		
-		return "basic-table";
-	}
+
 	
 	@RequestMapping("/toRegister")
 	public String toRegister() {
