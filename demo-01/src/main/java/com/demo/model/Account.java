@@ -10,6 +10,7 @@ public class Account {
 	private Integer status;
 	private Date createTime;
 	private Date updateTime;
+	private Integer emailCode;
 	public Integer getId() {
 		return id;
 	}
@@ -52,14 +53,26 @@ public class Account {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
+	public Integer getEmailCode() {
+		return emailCode;
+	}
+
+	public void setEmailCode(Integer emailCode) {
+		this.emailCode = emailCode;
+	}
+
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", status=" + status + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+		return "Account{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", status=" + status +
+				", createTime=" + createTime +
+				", updateTime=" + updateTime +
+				", emailCode=" + emailCode +
+				'}';
 	}
-	
-	
-	
-	
-
 }

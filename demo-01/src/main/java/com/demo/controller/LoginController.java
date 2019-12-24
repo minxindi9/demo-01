@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.demo.framework.utils.RedisUtil;
 import com.demo.framework.utils.SessionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,10 @@ public class LoginController extends CommonController<LoginController> {
 
 	@Autowired
 	AccountMapper accountMapper;
+
+	@Autowired
+	RedisUtil redisUtil;
+
 	
 	@RequestMapping("/doLogin")
 	public ModelAndView login1(String userName,String password,HttpSession session) {
@@ -94,7 +99,14 @@ public class LoginController extends CommonController<LoginController> {
 			mv.setViewName("register");
 			return mv;
 		}
-		
+
+		String emailCode = (String) redisUtil.get(account.getEmail());
+		if(StringUtils.isEmpty(emailCode) || account.getEmailCode() != Integer.parseInt(emailCode)){
+			mv.addObject("msg","邮箱验证码错误");
+			mv.setViewName("register");
+			return mv;
+		}
+
 		Account at = accountMapper.checkLogin(account.getUserName(),null);
 		if(at != null) {
 			mv.addObject("msg","用户名已经存在");

@@ -31,6 +31,30 @@
 
     </head>
 
+    <script>
+        function sendCode() {
+            var email = $("#form-email").val();
+            $.ajax({
+                url:"/email/sendEmail",
+                type:"get",
+                contentType:"application/x-www-form-urlencoded",
+                data:{"email":email},
+                dataType:"json",
+                success:function (result) {
+                    if(result !=null){
+                        $("#CodeMsg").html(result.msg);
+                        $("#CodeMsglab").html("");
+                    }else {
+                        $("#aaamsg").val("网络异常，清稍后再试");
+                    }
+                }
+
+            });
+            return false;
+        }
+
+    </script>
+
     <body>
 
         <!-- Top content -->
@@ -47,6 +71,7 @@
                             		<p th:if="${flag} != '1'">注册</p>
                             		<p style="color: red" th:text="${msg}"></p>
                             		<a th:if="${flag} == '1'" th:href="@{/index.html}">请登录</a>
+                                    <p id="aaamsg"></p>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-key"></i>
@@ -54,7 +79,8 @@
                             </div>
                         
                             <div class="form-bottom">
-			                    <form role="form" action="register" method="post" class="login-form">
+			                    <form role="form" action="register" th:action="@{/register}" class="login-form">
+                                    <input type="hidden" name="_method" value="post"/>
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="userName" >UserName</label>
 			                        	<input type="text" name="userName" th:value="${userName}" th:placeholder="#{login.username}" class="form-username form-control" id="form-username">
@@ -65,8 +91,16 @@
 			                        </div>
 			                        <div class="form-group">
 			                    		<label class="sr-only" for="email" >email</label>
-			                        	<input type="text" name="email" th:value="${email}" th:placeholder="#{login.email}" class="form-username form-control" id="form-email">
+                                        <input type="text" name="email" th:value="${email}" th:placeholder="#{login.email}" class="form-username form-control" id="form-email">
 			                        </div>
+                                    <div class="form-group">
+                                        <label id="CodeMsg"></label>
+                                        <label id="CodeMsglab" style="align-content: center;margin-left: 80%" onclick="sendCode()">发送验证码</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="emailCode" >email</label>
+                                        <input type="text" name="emailCode" th:value="${emailCode}" th:placeholder="#{login.emailCode}" class="form-username form-control" id="form-emailCode">
+                                    </div>
 			                        <button type="submit" class="btn" th:text="#{login.zhuce}">register!</button>
 			                    </form>
 		                    </div>
@@ -107,6 +141,11 @@
         <!--[if lt IE 10]>
             <script src="../static/assets/js/placeholder.js"></script>
         <![endif]-->
+
+        <form id="sendEmail" action="@{/email/sendEmail}">
+            <input type="hidden" name="_method" value="post"/>
+            <input type="hidden" name="email1" id="email1"/>
+        </form>
 
     </body>
 

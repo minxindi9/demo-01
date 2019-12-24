@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>${ENV, var="JOB_NAME"}-第${BUILD_NUMBER}次构建日志</title>
+</head>
+
+<body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"
+      offset="0">
+<table width="95%" cellpadding="0" cellspacing="0"
+       style="font-size: 11pt; font-family: Tahoma, Arial, Helvetica, sans-serif">
+    <tr>
+        <td>
+            <h2>
+                <font>来自Mr.min的邮件通知</font>
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+            <b><font color="#0B610B">主题信息</font></b>
+            <hr size="2" width="100%" align="center" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                您好,这是邮箱验证码<span th:text="${mailBean.emailCode}" style="color: red">1111</span>,请再180秒内完成注册<br/>
+                <!--<a href="#" th:href="@{ http://www.ityouknow.com/neo/{id}(id=${id}) }">激活账号</a>
+                <a href="#" th:href="@{ http://34.92.91.41/demo/login(userName=${userName},password=${password}) }">激活账号</a>-->
+
+            </ul>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

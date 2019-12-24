@@ -47,8 +47,8 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
 		super.addInterceptors(registry);
 		registry.addInterceptor(new LoginHandlerInterceptor())
 				.addPathPatterns("/**")
-				.excludePathPatterns("/login","/index.html","/doLogin")
-				.excludePathPatterns("/static/**");
-
+				.excludePathPatterns("/login","/index.html","/doLogin","/toRegister","/register")
+				.excludePathPatterns("/static/**","/webjars/**")
+				.excludePathPatterns("/email/sendEmail");
 	}
 }
