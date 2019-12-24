@@ -35,7 +35,7 @@
         function sendCode() {
             var email = $("#form-email").val();
             $.ajax({
-                url:"/email/sendEmail",
+                url:"email/sendEmail",
                 type:"get",
                 contentType:"application/x-www-form-urlencoded",
                 data:{"email":email},

@@ -22,18 +22,6 @@
 	<repositories>
 
 		<repository>
-			<id>maven-net-cn</id>
-			<name>Maven China Mirror</name>
-			<url>http://106.14.30.166:8081/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-
-		<repository>
 			<id>maven-ali</id>
 			<url>http://maven.aliyun.com/nexus/content/groups/public//</url>
 			<releases>
@@ -43,6 +31,18 @@
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>maven-net-cn</id>
+			<name>Maven China Mirror</name>
+			<url>http://106.14.30.166:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 
