@@ -49,6 +49,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter{
 				.addPathPatterns("/**")
 				.excludePathPatterns("/login","/index.html","/doLogin","/toRegister","/register")
 				.excludePathPatterns("/static/**","/webjars/**")
-				.excludePathPatterns("/email/sendEmail");
+				.excludePathPatterns("/email/sendEmail")
+				.excludePathPatterns("/api/**");
 	}
 }

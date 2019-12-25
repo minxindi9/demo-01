@@ -3,6 +3,7 @@ package com.demo;
 import javax.sql.DataSource;
 
 import com.demo.framework.utils.RedisUtil;
+import com.demo.service.CacheTestServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,9 @@ class Demo01ApplicationTests {
 
 	@Autowired
 	RedisUtil redisUtil;
+
+	@Autowired
+	CacheTestServiceImpl cacheTestService;
 	
 	@Test
 	public void test() {
@@ -37,6 +41,11 @@ class Demo01ApplicationTests {
 	public void test03(){
 		redisUtil.expire("min",60);
 		System.out.println(redisUtil.getExpire("min"));
+	}
+
+	@Test
+	public void test04(){
+		cacheTestService.selectAccount(0);
 	}
 
 }
